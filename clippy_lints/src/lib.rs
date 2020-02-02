@@ -208,6 +208,7 @@ pub mod excessive_precision;
 pub mod exit;
 pub mod explicit_write;
 pub mod fallible_impl_from;
+pub mod fn_param_redef_as_mutable;
 pub mod format;
 pub mod formatting;
 pub mod functions;
@@ -535,6 +536,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
         &exit::EXIT,
         &explicit_write::EXPLICIT_WRITE,
         &fallible_impl_from::FALLIBLE_IMPL_FROM,
+        &fn_param_redef_as_mutable::FN_PARAM_REDEF_AS_MUTABLE,
         &format::USELESS_FORMAT,
         &formatting::POSSIBLE_MISSING_COMMA,
         &formatting::SUSPICIOUS_ASSIGNMENT_FORMATTING,
@@ -1000,6 +1002,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
     store.register_late_pass(|| box let_underscore::LetUnderscore);
     store.register_late_pass(|| box atomic_ordering::AtomicOrdering);
     store.register_early_pass(|| box single_component_path_imports::SingleComponentPathImports);
+    store.register_early_pass(|| box fn_param_redef_as_mutable::FnParamRedefAsMutable);
 
     store.register_group(true, "clippy::restriction", Some("clippy_restriction"), vec![
         LintId::of(&arithmetic::FLOAT_ARITHMETIC),
@@ -1151,6 +1154,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
         LintId::of(&eval_order_dependence::EVAL_ORDER_DEPENDENCE),
         LintId::of(&excessive_precision::EXCESSIVE_PRECISION),
         LintId::of(&explicit_write::EXPLICIT_WRITE),
+        LintId::of(&fn_param_redef_as_mutable::FN_PARAM_REDEF_AS_MUTABLE),
         LintId::of(&format::USELESS_FORMAT),
         LintId::of(&formatting::POSSIBLE_MISSING_COMMA),
         LintId::of(&formatting::SUSPICIOUS_ASSIGNMENT_FORMATTING),
@@ -1469,6 +1473,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
         LintId::of(&eval_order_dependence::DIVERGING_SUB_EXPRESSION),
         LintId::of(&eval_order_dependence::EVAL_ORDER_DEPENDENCE),
         LintId::of(&explicit_write::EXPLICIT_WRITE),
+        LintId::of(&fn_param_redef_as_mutable::FN_PARAM_REDEF_AS_MUTABLE),
         LintId::of(&format::USELESS_FORMAT),
         LintId::of(&functions::TOO_MANY_ARGUMENTS),
         LintId::of(&get_last_with_len::GET_LAST_WITH_LEN),

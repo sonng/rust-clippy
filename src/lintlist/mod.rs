@@ -624,6 +624,13 @@ pub const ALL_LINTS: [Lint; 352] = [
         module: "misc",
     },
     Lint {
+        name: "fn_param_redef_as_mutable",
+        group: "complexity",
+        desc: "default lint description",
+        deprecation: None,
+        module: "fn_param_redef_as_mutable",
+    },
+    Lint {
         name: "fn_to_numeric_cast",
         group: "style",
         desc: "casting a function pointer to a numeric type other than usize",

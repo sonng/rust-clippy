@@ -1147,6 +1147,7 @@ Released 2018-09-13
 [`float_arithmetic`]: https://rust-lang.github.io/rust-clippy/master/index.html#float_arithmetic
 [`float_cmp`]: https://rust-lang.github.io/rust-clippy/master/index.html#float_cmp
 [`float_cmp_const`]: https://rust-lang.github.io/rust-clippy/master/index.html#float_cmp_const
+[`fn_param_redef_as_mutable`]: https://rust-lang.github.io/rust-clippy/master/index.html#fn_param_redef_as_mutable
 [`fn_to_numeric_cast`]: https://rust-lang.github.io/rust-clippy/master/index.html#fn_to_numeric_cast
 [`fn_to_numeric_cast_with_truncation`]: https://rust-lang.github.io/rust-clippy/master/index.html#fn_to_numeric_cast_with_truncation
 [`for_kv_map`]: https://rust-lang.github.io/rust-clippy/master/index.html#for_kv_map
